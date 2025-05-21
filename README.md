@@ -12,26 +12,26 @@ https://docs.turso.tech/cli/installation
 
 ```
 $ turso group create --location aws-us-east-1 demo
-Created group hello at aws-us-east-1 in 5.139s.
+Created group demo at aws-us-east-1 in 264ms.
 ```
 
 4. Create a database:
 
 ```
 $ turso db create --group demo demo-database-1
-Created database db1 at group hello in 504ms.
+Created database demo-database-1 at group demo in 542ms.
 
 Start an interactive SQL shell with:
 
-   turso db shell db1
+   turso db shell demo-database-1
 
 To see information about the database, including a connection URL, run:
 
-   turso db show db1
+   turso db show demo-database-1
 
 To get an authentication token for the database, run:
 
-   turso db tokens create db1
+   turso db tokens create demo-database-1
 ```
 
 ## AI
