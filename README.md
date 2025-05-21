@@ -104,3 +104,7 @@ for (const row of rs.rows) {
     console.log(row);
 }
 ```
+
+You can find full JavaScript SDK documentation here: https://docs.turso.tech/sdk/ts/quickstart
+
+Documentation for other SDKs here: https://docs.turso.tech/sdk/introduction
