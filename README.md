@@ -76,8 +76,8 @@ $ npm i @libsql/client
 ```
 
 ```console
-$ export TURSO_DATABASE_URL=$(turso db show --url <database>)
-$ export TURSO_AUTH_TOKEN=$(turso db tokens create <database>)
+$ export TURSO_DATABASE_URL=$(turso db show --url demo-database-1)
+$ export TURSO_AUTH_TOKEN=$(turso db tokens create demo-database-1)
 ```
 
 ```javascript
