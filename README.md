@@ -80,7 +80,6 @@ $ export TURSO_AUTH_TOKEN=$(turso db tokens create <database>)
 
 ```javascript
 import { createClient } from "@libsql/client";
-import Sentencer from 'sentencer';
 
 function getText() {
   // <insert code to generate a recommendation>
@@ -108,3 +107,38 @@ for (const row of rs.rows) {
 You can find full JavaScript SDK documentation here: https://docs.turso.tech/sdk/ts/quickstart
 
 Documentation for other SDKs here: https://docs.turso.tech/sdk/introduction
+
+### Offline access
+
+```javascript
+import { createClient } from "@libsql/client";
+
+function getText() {
+  // <insert code to generate a recommendation>
+}
+
+// Create database client:
+const db = createClient({
+  url: "file:local.db",
+  syncUrl: process.env.TURSO_DATABASE_URL,
+  authToken: process.env.TURSO_AUTH_TOKEN,
+});
+
+// Sync remote database to local.
+db.sync();
+
+// Create table and insert some data:
+await db.execute("CREATE TABLE IF NOT EXISTS recs (text TEXT)");
+
+const text = getText();
+await db.execute({ sql: "INSERT INTO recs VALUES (?)", args: [text] });
+
+// Query the table:
+const rs = await db.execute({ sql: "SELECT * FROM recs" });
+for (const row of rs.rows) {
+    console.log(row);
+}
+
+// Sync local database to remote.
+db.sync();
+```
