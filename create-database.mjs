@@ -11,6 +11,6 @@ const turso = createClient({ org, token });
 // Generate unique database name and provision it:
 const databaseName = hri.random();
 const database = await turso.databases.create(databaseName, {
-  group: "default",
+  group: "demo",
 });
 console.log("Created database: " + databaseName)
