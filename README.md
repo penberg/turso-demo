@@ -18,7 +18,7 @@ Created group hello at aws-us-east-1 in 5.139s.
 4. Create a database:
 
 ```
-$ turso db create --group hello demo
+$ turso db create --group demo demo-database-1
 Created database db1 at group hello in 504ms.
 
 Start an interactive SQL shell with:
