@@ -11,14 +11,14 @@ https://docs.turso.tech/cli/installation
 3. Create group:
 
 ```
-$ turso group create --location aws-us-east-1 hello
+$ turso group create --location aws-us-east-1 demo
 Created group hello at aws-us-east-1 in 5.139s.
 ```
 
 4. Create a database:
 
 ```
-$ turso db create --group hello db1
+$ turso db create --group hello demo
 Created database db1 at group hello in 504ms.
 
 Start an interactive SQL shell with:
@@ -61,7 +61,7 @@ const turso = createClient({ org, token });
 // Generate unique database name and provision it:
 const databaseName = hri.random();
 const database = await turso.databases.create(databaseName, {
-  group: "default",
+  group: "demo",
 });
 ```
 
